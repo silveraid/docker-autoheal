@@ -1,6 +1,7 @@
-FROM alpine:3.11
+FROM alpine:3.12
 
-RUN apk add --no-cache curl jq
+RUN apk upgrade --no-progress --no-cache && \
+    apk add -q --no-progress --no-cache curl jq
 
 COPY docker-entrypoint /
 ENTRYPOINT ["/docker-entrypoint"]
